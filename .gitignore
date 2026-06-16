@@ -1,0 +1,3 @@
+# Block all email and text files anywhere in the project
+**/*.eml
+**/*.txt
