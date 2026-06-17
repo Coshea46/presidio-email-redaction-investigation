@@ -1,3 +1,12 @@
 # Block all email and text files anywhere in the project
 **/*.eml
 **/*.txt
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
