@@ -1,0 +1,24 @@
+presidio_analyzer_version: 2.2.362
+generation_date_of_this_file: '2026-06-18 20:08:03'
+entities:
+  en:
+  - CREDIT_CARD
+  - CRYPTO
+  - DATE_TIME
+  - EMAIL_ADDRESS
+  - IBAN_CODE
+  - IP_ADDRESS
+  - LOCATION
+  - MAC_ADDRESS
+  - MEDICAL_LICENSE
+  - NRP
+  - ORGANIZATION
+  - PERSON
+  - PHONE_NUMBER
+  - UK_NHS
+  - URL
+  - US_BANK_NUMBER
+  - US_DRIVER_LICENSE
+  - US_ITIN
+  - US_PASSPORT
+  - US_SSN
