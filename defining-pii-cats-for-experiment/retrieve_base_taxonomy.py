@@ -3,7 +3,7 @@ import importlib.metadata
 from datetime import datetime
 from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
 
-# extract presidio analyzer version (for reproducability)
+# extract presidio analyzer version for reproducability
 version = importlib.metadata.version("presidio-analyzer")
 
 # get the current date and time

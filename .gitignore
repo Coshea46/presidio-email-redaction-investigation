@@ -1,5 +1,6 @@
-# Block all email and text files anywhere in the project
+# Block all email, text, and mailbox files anywhere in the project
 **/*.eml
+**/*.mbox
 **/*.txt
 
 # Environments
@@ -11,7 +12,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# .gitignore
-venv/
+# Project files
 *.ftz
 *.bin
+~

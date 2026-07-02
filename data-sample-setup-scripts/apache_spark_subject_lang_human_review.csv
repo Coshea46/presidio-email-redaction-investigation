@@ -1,0 +1,121 @@
+sample,email_id,keep_or_delete,problem
+apache_spark,msg_000.eml,keep,
+apache_spark,msg_001.eml,keep,
+apache_spark,msg_002.eml,keep,
+apache_spark,msg_003.eml,keep,na
+apache_spark,msg_004.eml,keep,na
+apache_spark,msg_005.eml,keep,na
+apache_spark,msg_006.eml,keep,na
+apache_spark,msg_007.eml,keep,na
+apache_spark,msg_008.eml,keep,part of vote
+apache_spark,msg_009.eml,keep,part of vote
+apache_spark,msg_010.eml,keep,part of vote
+apache_spark,msg_011.eml,keep,part of vote
+apache_spark,msg_012.eml,keep,part of vote
+apache_spark,msg_013.eml,keep,part of vote
+apache_spark,msg_014.eml,keep,part of vote
+apache_spark,msg_015.eml,keep,part of vote
+apache_spark,msg_016.eml,keep,part of vote
+apache_spark,msg_017.eml,keep,na
+apache_spark,msg_018.eml,keep,part of vote
+apache_spark,msg_019.eml,keep,part of vote
+apache_spark,msg_020.eml,keep,part of vote
+apache_spark,msg_021.eml,keep,na
+apache_spark,msg_022.eml,keep,na
+apache_spark,msg_023.eml,keep,na
+apache_spark,msg_024.eml,keep,na
+apache_spark,msg_025.eml,keep,na
+apache_spark,msg_026.eml,keep,na
+apache_spark,msg_027.eml,keep,na
+apache_spark,msg_028.eml,keep,na
+apache_spark,msg_029.eml,keep,na
+apache_spark,msg_030.eml,keep,na
+apache_spark,msg_031.eml,keep,na
+apache_spark,msg_032.eml,keep,na
+apache_spark,msg_033.eml,keep,na
+apache_spark,msg_034.eml,keep,na
+apache_spark,msg_035.eml,keep,subject line is blank
+apache_spark,msg_036.eml,keep,na
+apache_spark,msg_037.eml,keep,na
+apache_spark,msg_038.eml,keep,na
+apache_spark,msg_039.eml,keep,na
+apache_spark,msg_040.eml,keep,na
+apache_spark,msg_041.eml,keep,na
+apache_spark,msg_042.eml,keep,na
+apache_spark,msg_043.eml,keep,na
+apache_spark,msg_044.eml,keep,na
+apache_spark,msg_045.eml,keep,na
+apache_spark,msg_046.eml,keep,na
+apache_spark,msg_047.eml,keep,na
+apache_spark,msg_048.eml,keep,na
+apache_spark,msg_049.eml,keep,na
+apache_spark,msg_050.eml,keep,na
+apache_spark,msg_051.eml,keep,na
+apache_spark,msg_052.eml,keep,na
+apache_spark,msg_053.eml,keep,na
+apache_spark,msg_054.eml,keep,na
+apache_spark,msg_055.eml,keep,na
+apache_spark,msg_056.eml,keep,na
+apache_spark,msg_057.eml,keep,na
+apache_spark,msg_058.eml,keep,na
+apache_spark,msg_059.eml,keep,na
+apache_spark,msg_060.eml,keep,na
+apache_spark,msg_061.eml,keep,na
+apache_spark,msg_062.eml,keep,na
+apache_spark,msg_063.eml,keep,na
+apache_spark,msg_064.eml,keep,na
+apache_spark,msg_065.eml,keep,na
+apache_spark,msg_066.eml,keep,na
+apache_spark,msg_067.eml,keep,na
+apache_spark,msg_068.eml,keep,na
+apache_spark,msg_069.eml,keep,na
+apache_spark,msg_070.eml,keep,na
+apache_spark,msg_071.eml,keep,na
+apache_spark,msg_072.eml,keep,na
+apache_spark,msg_073.eml,keep,na
+apache_spark,msg_074.eml,keep,na
+apache_spark,msg_075.eml,keep,na
+apache_spark,msg_076.eml,keep,na
+apache_spark,msg_077.eml,keep,na
+apache_spark,msg_078.eml,keep,na
+apache_spark,msg_079.eml,keep,na
+apache_spark,msg_080.eml,keep,na
+apache_spark,msg_081.eml,keep,na
+apache_spark,msg_082.eml,keep,na
+apache_spark,msg_083.eml,keep,na
+apache_spark,msg_084.eml,keep,na
+apache_spark,msg_085.eml,keep,na
+apache_spark,msg_086.eml,keep,na
+apache_spark,msg_087.eml,keep,na
+apache_spark,msg_088.eml,keep,na
+apache_spark,msg_089.eml,keep,na
+apache_spark,msg_090.eml,keep,na
+apache_spark,msg_091.eml,keep,na
+apache_spark,msg_092.eml,keep,na
+apache_spark,msg_093.eml,keep,na
+apache_spark,msg_094.eml,keep,na
+apache_spark,msg_095.eml,keep,na
+apache_spark,msg_096.eml,keep,na
+apache_spark,msg_097.eml,keep,na
+apache_spark,msg_098.eml,keep,na
+apache_spark,msg_099.eml,keep,na
+apache_spark,msg_100.eml,keep,na
+apache_spark,msg_101.eml,keep,na
+apache_spark,msg_102.eml,keep,na
+apache_spark,msg_103.eml,keep,na
+apache_spark,msg_104.eml,keep,na
+apache_spark,msg_105.eml,keep,na
+apache_spark,msg_106.eml,keep,na
+apache_spark,msg_107.eml,keep,na
+apache_spark,msg_108.eml,keep,na
+apache_spark,msg_109.eml,keep,na
+apache_spark,msg_110.eml,keep,na
+apache_spark,msg_111.eml,keep,na
+apache_spark,msg_112.eml,keep,na
+apache_spark,msg_113.eml,keep,na
+apache_spark,msg_114.eml,keep,na
+apache_spark,msg_115.eml,keep,na
+apache_spark,msg_116.eml,keep,na
+apache_spark,msg_117.eml,keep,email is likely to test mbox works
+apache_spark,msg_118.eml,keep,na
+apache_spark,msg_119.eml,keep,na

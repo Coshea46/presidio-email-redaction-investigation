@@ -12,10 +12,10 @@ def find_likely_english_samples(input_dir_path, num_samples_desired):
     model = fasttext.load_model('models/lid.176.ftz')
 
     # ensure we only grab files
-    all_file_paths_in_dir = [
+    all_file_paths_in_dir = sorted([
         os.path.join(input_dir_path,eml_file) for eml_file in os.listdir(input_dir_path)
         if os.path.isfile(os.path.join(input_dir_path, eml_file))
-    ]
+    ])
 
 
     likely_english_list = []
@@ -72,7 +72,7 @@ def main(args):
     input_dir_path = args[0]
     target_dir_path = args[1]
 
-    NUM_SAMPLES_DESIRED = 110
+    NUM_SAMPLES_DESIRED = float('inf')  # set to infinity to make script process all files in input directory
 
     candidate_emails = find_likely_english_samples(input_dir_path,NUM_SAMPLES_DESIRED)
 

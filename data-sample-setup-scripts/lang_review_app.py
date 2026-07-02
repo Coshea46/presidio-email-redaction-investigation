@@ -1,29 +1,47 @@
 import streamlit as st
 import os
+import sys
 import email
 import csv
+import subprocess
 from email.policy import default
 
 # --- Configuration ---
-OUTPUT_CSV = "subject_lang_human_review.csv"
+OUTPUT_CSV = "apache_spark_subject_lang_human_review.csv"
 
 # Initialize CSV if it doesn't exist to ensure headers are present
 if not os.path.exists(OUTPUT_CSV):
     with open(OUTPUT_CSV, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(["sample", "email_id", "keep_or_delete"])
+        writer.writerow(["sample", "email_id", "keep_or_delete", "problem"])
 
 # --- Callbacks ---
 def record_decision(sample_name, email_id, decision):
     """Saves the decision to the CSV and advances the index."""
-    # Strip any literal quotation marks the user might have typed into the input
     clean_sample = sample_name.strip("\"'")
+    problem_description = st.session_state.get("problem_text", "").strip()
     
     with open(OUTPUT_CSV, mode='a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow([clean_sample, email_id, decision])
+        writer.writerow([clean_sample, email_id, decision, problem_description])
     
     st.session_state.current_idx += 1
+
+def open_in_thunderbird(file_path):
+    """Launches the given file in Mozilla Thunderbird."""
+    try:
+        if sys.platform == 'win32':
+            # Note: If thunderbird isn't in your Windows PATH, replace 'thunderbird' 
+            # with the full path, e.g., r'C:\Program Files\Mozilla Thunderbird\thunderbird.exe'
+            subprocess.Popen(['thunderbird', '-file', file_path])
+        elif sys.platform == 'darwin':
+            # macOS
+            subprocess.Popen(['open', '-a', 'Thunderbird', file_path])
+        else:
+            # Linux / other Unix
+            subprocess.Popen(['thunderbird', file_path])
+    except Exception as e:
+        st.error(f"Failed to open Thunderbird: {e}")
 
 # --- Main App ---
 st.title("📧 Email Subject Reviewer")
@@ -35,13 +53,14 @@ if 'files' not in st.session_state:
     st.session_state.files = []
 if 'last_dir' not in st.session_state:
     st.session_state.last_dir = ""
+if 'problem_text' not in st.session_state:
+    st.session_state.problem_text = ""
 
 # Inputs for sample name and directory path
 sample_name = st.text_input("Enter the sample name:")
 directory = st.text_input("Enter the absolute or relative path to your emails directory:")
 
 if directory and os.path.isdir(directory):
-    # If a new directory is entered, load the files and reset progress
     if st.session_state.last_dir != directory:
         files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
         st.session_state.files = sorted(files)
@@ -72,6 +91,15 @@ if directory and os.path.isdir(directory):
         
         st.markdown("### Subject Line:")
         st.info(subject)
+
+        # UI: Open in Thunderbird Button
+        if st.button("📨 Open full email in Thunderbird"):
+            open_in_thunderbird(file_path)
+
+        st.divider()
+
+        # UI: Problem Text Input
+        st.text_input("Describe any problems (optional):", key="problem_text")
 
         # UI: Action Buttons
         col1, col2 = st.columns(2)
