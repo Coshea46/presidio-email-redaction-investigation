@@ -1,55 +1,61 @@
 import json
 import csv
+from collections import Counter
 
 def json_to_csv(input_filepath, output_filepath):
-    # Load the JSON data
     with open(input_filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
-        
-    # Define the CSV headers (without the score column)
-    headers = ['sample', 'email_id', 'annotation_id', 'start', 'end', 'entity_type', 'text']
+
+    # --- Diagnostic: check what origin values exist in this file ---
+    origins = Counter(
+        ann.get('origin', 'NONE')
+        for record in data
+        for block in record.get('annotations', [])
+        for ann in block.get('result', [])
+    )
+    print(f"Origin counts: {origins}")
+
+    # Check for duplicate annotation IDs within ALL ground truth
+    all_ids = [
+        ann.get('id')
+        for record in data
+        for block in record.get('annotations', [])
+        for ann in block.get('result', [])
+    ]
+    dupes = [item for item, count in Counter(all_ids).items() if count > 1]
+    print(f"Total annotations: {len(all_ids)}, unique: {len(set(all_ids))}, duplicate IDs: {dupes}")
     
-    # Open the output CSV file
+    # -----------------------------------------------------------
+
+    # Add 'origin' column to help track source if needed later
+    headers = ['sample', 'email_id', 'annotation_id', 'start', 'end', 'entity_type', 'text', 'origin']
+
     with open(output_filepath, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
-        
-        # Loop through each document record in the JSON array
+
         for record in data:
-            # Safely get the email_id from the "data" dictionary
             email_id = record.get('data', {}).get('email_id', '')
-            
-            # For ground truths, annotations are under the "annotations" key, not "predictions"
+
             for annotation_block in record.get('annotations', []):
-                
-                # Loop through the actual annotations inside "result"
                 for annotation in annotation_block.get('result', []):
-                    val = annotation.get('value', {})
+                    # KEEP ALL annotations - they're all valid ground truth
+                    # Remove the filter entirely
                     
+                    val = annotation.get('value', {})
                     sample = "apache_spark"
                     annotation_id = annotation.get('id', '')
-                    
                     start = val.get('start', '')
                     end = val.get('end', '')
                     text = val.get('text', '')
-                    
-                    # Extract the first label as entity_type if it exists
                     labels = val.get('labels', [])
                     entity_type = labels[0] if labels else ''
-                    
-                    # Write the row to the CSV (excluding score)
-                    writer.writerow([
-                        sample, 
-                        email_id, 
-                        annotation_id, 
-                        start, 
-                        end, 
-                        entity_type, 
-                        text
-                    ])
+                    origin = annotation.get('origin', '')
+
+                    writer.writerow([sample, email_id, annotation_id, start, end, entity_type, text, origin])
 
     print(f"Successfully converted {input_filepath} to {output_filepath}")
+    print(f"Total annotations exported: {len(all_ids)}")
 
 if __name__ == '__main__':
-    # Execute the conversion
     json_to_csv('./SAMPLE_OF_20_ground_truth_spans.json', 'SAMPLE_OF_20_ground_truths.csv')
